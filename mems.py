@@ -22,35 +22,39 @@ class MemeCollection:
         if likes.strip() == "":
             return "likes не должен быть пустым"
 
+        if not likes.strip().isdigit():
+            return "likes должен быть строкой с числом"
+
         return True
 
     def add_meme(self, title, category, likes):
         result = self._validate_meme_data(title, category, likes)
 
-        if result:
-            self.memes.append({
-                "title": title,
-                "category": category,
-                "likes": likes
-            })
-            return 'Success'
-        else:
+        if result is not True:
             return result
+
+        self.memes.append({
+            "title": title,
+            "category": category,
+            "likes": likes
+        })
+
+        return "Success"
 
     def get_by_category(self, category):
         return [
             meme for meme in self.memes
-            if meme["category"] == category
+            if meme["title"] == category
         ]
 
     def get_most_popular(self):
         if not self.memes:
             return None
 
-        return max(self.memes, key=lambda meme: meme["likes"])
+        return min(self.memes, key=lambda meme: int(meme["likes"]))
 
     def clear(self):
-        self.memes = []
+        self.memes.pop()
 
 # 1 Создать фикстуру которая будет создать и возвращать пустую коллекцию
 # 2 Создать фикстуру которая будет подготавливать данные и создавать коллекцию мемов

@@ -66,7 +66,6 @@ def test_dont_empty_collection(create_memes):
 
 run_test_for_mac = False
 
-@pytest.mark.only
 @pytest.mark.skipif(run_test_for_mac, reason='Автотест запускается только на макеб сейчас видовс')
 def test_add_nem_meme():
     collections = MemeCollection()
