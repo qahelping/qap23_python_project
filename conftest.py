@@ -1,3 +1,5 @@
+from email.policy import default
+
 import pytest
 
 
@@ -54,3 +56,14 @@ def function_func():
     #print("\n+++Вызвали фикстуру 'function'+++")
     yield
     #print("\n+++Вернулись в фикстуру 'function'+++")
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        '--url', default='localhost:3000', help='Domain'
+
+    )
+
+@pytest.fixture(scope='session')
+def domain(pytestconfig):
+    return pytestconfig.getoption('--url')

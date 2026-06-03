@@ -9,8 +9,9 @@ exclude = '''
   | env
   | .git
   | __pycache__
-  | allure-results
-  | allure-report
+  | \.allure-results
+  | \.allure-report
+  | \.test-results
   | .pytest_cache
   | main.py
   | infra/core
@@ -26,8 +27,9 @@ skip = [
     "env",
     ".git",
     "__pycache__",
-    "allure-results",
-    "allure-report",
+    ".allure-results",
+    ".allure-report",
+    ".test-results",
     ".pytest_cache",
     "infra/core"
 ]
