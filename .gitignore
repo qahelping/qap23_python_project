@@ -6,9 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
-.allure-report
-.allure-results
-.test-results
+.allure-report/
+allure-results/
+.test-results/
 
 
 # Distribution / packaging
@@ -163,7 +163,6 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-/allure-results
 .file.json
 .request.log
 # Pyre type checker

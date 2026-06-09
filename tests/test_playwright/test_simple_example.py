@@ -94,7 +94,6 @@ def test_locators(page: Page) -> None:
     expect(card_fields).to_be_visible()
 
 
-@pytest.mark.only
 @allure.title("Ввод недействующего промокода")
 @allure.description("При вводе истекшего промокода появляется сообщение об ошибке")
 @allure.link("http://localhost:3000/automation-lab/subscription", name="Website")

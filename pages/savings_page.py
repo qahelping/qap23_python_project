@@ -1,9 +1,11 @@
 from playwright.sync_api import Page, expect
 
+from components.header_component import HeaderComponent
+from core.automation_lab_base_page import AutomationLabBasePage
 from core.base_page import BasePage
 
 
-class SavingsPage(BasePage):
+class SavingsPage(AutomationLabBasePage):
 
     path = '/automation-lab/savings'
     title = 'Task Management Board'
@@ -23,8 +25,10 @@ class SavingsPage(BasePage):
     def open(self) -> None:
         self.goto(self.path)
 
-    def verify_page_opened(self) -> None:
+    def verify_goal_page_opened(self) -> None:
         super().verify_page_opened(self.path, self.title)
+
+        self.header.verify_header_component_visible()
         expect(self.goals_page).to_be_visible()
 
     def verify_empty_state(self) -> None:

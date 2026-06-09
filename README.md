@@ -89,8 +89,8 @@ pytest -s            # показать print()/stdout
 
 
 ```bash
-allure serve allure-results
+allure serve .allure-results
 
-allure generate allure-results -o allure-report --clean
-allure serve
+allure generate .allure-results -o .allure-report --clean
+allure open .allure-report
 ```
